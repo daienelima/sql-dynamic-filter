@@ -1,0 +1,15 @@
+datasource's:
+  default:
+    url: jdbc:postgresql://localhost:5432/rinha
+    username: postgres
+    password: "1234"
+    driverClassName: org.postgresql.Driver
+
+jpa:
+  default:
+    entity-scan:
+      packages: 'com.example.model'
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
