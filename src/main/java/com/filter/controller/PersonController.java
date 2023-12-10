@@ -29,12 +29,7 @@ public class PersonController {
 
     @Get("/{?values*}")
     public HttpResponse<List<Person>> getAllPerson(@Nullable @QueryValue("values") Map<String, String> values) {
-       try{
-           return HttpResponse.ok(service.getAllByFilter(values));
-       }catch (Exception e){
-           var error = Error.builder().error("Error").details(e.getMessage()).build();
-           throw new BadRequestException(error, e);
-       }
+        return HttpResponse.ok(service.getAllByFilter(values));
     }
 
     private void getParams(Map<String, String> values){
@@ -42,5 +37,4 @@ public class PersonController {
             System.out.println("Key: " + value.getKey() + " Value: " + value.getValue());
         }
     }
-
 }
